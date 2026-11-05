@@ -70,7 +70,7 @@ if ! check && [[ -n "$lat" && "$cur" != "$lat" ]]; then
 fi
 
 say "Graphify (pipx)"
-if check; then pipx list --short 2>/dev/null | grep graphifyy; echo "latest: $(pip index versions graphifyy 2>/dev/null | head -1)"
+if check; then pipx list --short 2>/dev/null | grep graphifyy; echo "latest: $(curl -fsS https://pypi.org/pypi/graphifyy/json 2>/dev/null | python3 -I -c "import json,sys; print(json.load(sys.stdin)['info']['version'])" 2>/dev/null)"
 else pipx upgrade graphifyy && graphify install --platform claude >/dev/null && echo "skill refreshed"; fi
 
 say "Impeccable"
