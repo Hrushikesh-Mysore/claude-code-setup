@@ -13,6 +13,7 @@
 ## Execution
 - Run terminal commands directly; don't ask permission for routine dev commands (auto mode handles safety).
 - Still confirm before irreversible or outward-facing actions: git push, publishing, deleting my files, spending money.
+- Never add `Co-Authored-By: Claude` (or any Claude/Anthropic attribution) to commits or PRs, in any repo.
 
 ## Models
 - Default is `opusplan`: Opus plans (in plan mode), Sonnet implements.

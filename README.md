@@ -65,7 +65,7 @@ What the installer does:
 
 1. Saves your current `CLAUDE.md`, `settings.json` and any same-named skills to `~/.claude/backups/pre-claude-code-setup-<date>/`.
 2. Adds the master prompt to the top of `~/.claude/CLAUDE.md`, keeping what was there. Re-running replaces only its own section.
-3. Copies `/mode`, `/recheck` and `opus-reviewer`; sets `model: opusplan` and `permissions.defaultMode: auto` in `settings.json`.
+3. Copies `/mode`, `/recheck` and `opus-reviewer`; sets `model: opusplan`, `permissions.defaultMode: auto` and empty `attribution` (no `Co-Authored-By: Claude` in commits or PRs) in `settings.json`.
 4. Installs the plugins, skills and CLIs above, then prints any step that failed. It's safe to re-run.
 
 Then restart Claude Code (or run `/reload-plugins`) and type `/mode`.

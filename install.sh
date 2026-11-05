@@ -25,7 +25,7 @@ if (( ! CONFIG_ONLY )); then need node; need npx; need pipx; fi
 export PATH="$HOME/.local/bin:$(npm config get prefix 2>/dev/null)/bin:$PATH"
 
 # ---------- 1. back up what's there ----------
-SAVE="$CLAUDE_DIR/backups/pre-claude-code-setup-$(date +%F_%H%M%S)"
+SAVE="$CLAUDE_DIR/backups/pre-claude-code-setup-$(date +%F_%H%M%S)-$$"
 say "Backing up existing config to $SAVE"
 mkdir -p "$SAVE" "$CLAUDE_DIR/skills" "$CLAUDE_DIR/agents"
 for f in CLAUDE.md settings.json skills/mode skills/recheck agents/opus-reviewer.md; do
@@ -54,13 +54,14 @@ rm -rf "$CLAUDE_DIR/skills/mode" "$CLAUDE_DIR/skills/recheck"
 cp -r "$SRC/claude/skills/mode" "$SRC/claude/skills/recheck" "$CLAUDE_DIR/skills/"
 cp "$SRC/claude/agents/opus-reviewer.md" "$CLAUDE_DIR/agents/"
 
-say "Settings: model=opusplan, permissions.defaultMode=auto"
+say "Settings: model=opusplan, permissions.defaultMode=auto, no Claude commit/PR attribution"
 python3 -I - "$CLAUDE_DIR/settings.json" <<'EOF'
 import json, os, sys
 p = sys.argv[1]
 s = json.load(open(p)) if os.path.exists(p) else {}
 s["model"] = "opusplan"
 s.setdefault("permissions", {})["defaultMode"] = "auto"
+s["attribution"] = {"commit": "", "pr": "", "sessionUrl": False}
 json.dump(s, open(p, "w"), indent=2)
 EOF
 
