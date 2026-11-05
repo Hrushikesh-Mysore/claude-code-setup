@@ -1,0 +1,13 @@
+# One GitHub repo per line (owner/name). Lines starting with # are ignored.
+# update-all.sh clones new entries and fast-forwards existing ones.
+DietrichGebert/ponytail            # Ponytail plugin
+Graphify-Labs/graphify             # Graphify (PyPI: graphifyy)
+cloudflare/security-audit-skill    # security-audit skill
+vercel-labs/agent-browser          # agent-browser CLI + skill
+pbakaus/impeccable                 # Impeccable design skill
+cathrynlavery/diagram-design       # diagram-design plugin
+mvanhorn/last30days-skill          # last30days plugin
+heygen-com/hyperframes             # Hyperframes (used by brag)
+latent-spaces/brag                 # brag skill
+morluto/rea                        # REA MCP (npm: rea-agents)
+anthropics/claude-plugins-official # frontend-design plugin
