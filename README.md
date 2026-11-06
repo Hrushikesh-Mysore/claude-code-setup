@@ -88,6 +88,10 @@ It fast-forwards each local repo copy in `~/backup/repos` (listed in `~/backup/r
 
 > **Supply-chain warning:** updating everything at once means a compromised upstream repo gets installed immediately. Run `--check` first and read the new commits it lists.
 
+### Whole-machine updater (personal)
+
+[`extras/update.sh`](extras/update.sh) is the one-command updater I run as `update`: AI CLIs (Claude Code, Codex, agy, agent-browser, pipx tools, then `update-all.sh`), AppImage IDEs (Orca, ArtCraft, GitHub Copilot app; sha256-verified against the GitHub release, old copy kept until restart), `paru -Syu`, then orphan/cache cleanup. It is written for **my** machine: Arch/CachyOS, x86_64, and my `~/.local/opt` app paths. Missing tools are skipped, but read it and adjust paths before using it. `install.sh` does not install it.
+
 Inside Claude Code, `/recheck` goes further: it researches every installed tool for deprecations, security advisories and better alternatives, and reports a keep / upgrade / replace table with sources. It never installs anything without your approval.
 
 ## Deliberately left out
@@ -111,6 +115,7 @@ claude/skills/recheck/         /recheck
 claude/agents/opus-reviewer.md Opus code reviewer
 backup/update-all.sh           backup + update everything
 backup/repos.txt               repos to back up
+extras/update.sh               personal whole-machine updater (Arch, my paths)
 assets/workflow.py             regenerates the diagram SVGs
 install.sh
 ```
